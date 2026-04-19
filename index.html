@@ -618,11 +618,60 @@
         }
 
         /* Responsive Design */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         @media (max-width: 768px) {
-            .title { font-size: 3em; }
-            .subtitle { font-size: 1.2em; }
+            .container { margin: 0; border-radius: 0; }
+            header { padding: 50px 20px; }
+            .title { font-size: 2.4em; letter-spacing: -1px; }
+            .subtitle { font-size: 1.05em; margin-bottom: 25px; }
+            .author { margin: 4px 8px; font-size: 1em; }
+            .affiliation { margin: 4px 8px; font-size: 0.85em; }
+            .link-button { padding: 10px 18px; font-size: 0.9em; gap: 6px; }
             .options { grid-template-columns: 1fr; }
-            section { padding: 50px 30px; }
+            section { padding: 40px 18px; }
+            h3 { font-size: 1.8em; }
+            .scenario-box { padding: 20px; }
+            .scenario-header { font-size: 1.05em; }
+            .stat { min-width: 130px; padding: 20px; }
+            .stat-number { font-size: 2.5em; }
+            .results-table th, .results-table td { padding: 12px 10px; font-size: 0.9em; }
+            .finding-card { padding: 25px; }
+            .abstract { padding: 16px; font-size: 1em; }
+            .modal-content { padding: 24px; margin: 60px auto 30px; }
+        }
+
+        @media (max-width: 420px) {
+            .title { font-size: 1.9em; }
+            .subtitle { font-size: 0.95em; }
+            .links { gap: 10px; }
+            .link-button { padding: 9px 14px; font-size: 0.82em; }
+            .results-table th, .results-table td { padding: 10px 7px; font-size: 0.8em; }
+        }
+
+        .venue-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.18);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1.05em;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(8px);
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        .venue-badge .venue-star {
+            color: #ffd700;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -633,14 +682,20 @@
             <h1 class="title">👔 MANAGERBENCH</h1>
             <h2 class="subtitle">Evaluating the Safety-Pragmatism Trade-off in Autonomous LLMs</h2>
 
+            <div>
+                <span class="venue-badge">
+                    <span class="venue-star"></span> Accepted at ICLR 2026!
+                </span>
+            </div>
+
             <!-- Authors -->
             <div class="authors">
-                <span class="author">Adi Simhi<sup>1*</sup></span>
+                <span class="author">Adi Simhi<sup>1</sup></span>
                 <span class="author">Jonathan Herzig<sup>2</sup></span>
                 <span class="author">Martin Tutek<sup>3</sup></span>
                 <span class="author">Itay Itzhak<sup>1</sup></span>
                 <span class="author">Idan Szpektor<sup>2</sup></span>
-                <span class="author">Yonatan Belinkov<sup>1</sup></span>
+                <span class="author">Yonatan Belinkov<sup>1,4</sup></span>
             </div>
 
             <!-- Affiliations -->
@@ -648,6 +703,7 @@
                 <span class="affiliation"><sup>1</sup>Technion</span>
                 <span class="affiliation"><sup>2</sup>Google Research</span>
                 <span class="affiliation"><sup>3</sup>University of Zagreb</span>
+                <span class="affiliation"><sup>4</sup>Kempner Institute, Harvard University</span>
             </div>
 
             <!-- Links -->
@@ -814,6 +870,7 @@ leave 10% of crops unharvested…</p>
         <!-- Results Table Section -->
         <section class="results">
             <h3>🏆 Model Performance</h3>
+            <div class="table-wrapper">
             <table class="results-table">
                 <thead>
                     <tr>
@@ -853,7 +910,7 @@ leave 10% of crops unharvested…</p>
 
                 </tbody>
             </table>
-        </section>
+            </div>
 
         <!-- Citation Section -->
         <section class="citation">
